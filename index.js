@@ -1,5 +1,7 @@
 var express=require('express');
 var bodyParser = require('body-parser');
+//cookie parser
+var cookieParser = require('cookie-parser')
 // khai báo lowdb(data base đơn giản)
 var db=require('./db');
   // khai báo short id
@@ -8,6 +10,9 @@ var useRouter=require('./routers/user.router')
 
 
 var app=express();
+
+app.use(cookieParser())
+
 var port=3000;
 
 

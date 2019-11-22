@@ -25,25 +25,11 @@ module.exports.view=function(request,response){
 	})
 }
 module.exports.create=function(request,response){
+	console.log(request.cookies);
 	response.render('users/creat');
 }
 module.exports.postcreate=function(request,response)
-{var errors=[];
-if(!request.body.name)
 {
- errors.push('Name is required');
-}
-if(!request.body.phone)
-{
-	errors.push('Phone is required');
-}
-if(errors.length)
-{   response.render('users/creat',{
-	errors: errors,
-	values: request.body
-})
-	return
-}
 //cài thêm shortid từ lowdb để tự tạo ra id mới mỗi khi người dùng nhập mới
 // cài thêm request.body để lưu trữ giá trị người dùng nhập sau đó thêm vào mảng users
 //vì lúc này biến users undefined nên ta thay = db.get('users')
