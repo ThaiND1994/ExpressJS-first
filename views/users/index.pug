@@ -1,0 +1,27 @@
+extends ../layout/common
+block content
+  h1
+   p(class="text-center") UserList
+  form(action='/users/search',method='GET')
+   div.d-flex(class="form-group")
+      label(for="exampleInputEmail1" class='m-2 text-align-center') Name:
+      input(type='text',name='q' id='search',class="form-control",aria-describedby="emailHelp" placeholder="Enter Name")
+      br
+      button(class="btn btn-outline-primary ml-2") Search
+
+  table.table
+    tr
+      th Name
+      th Phone
+      th Actions
+    each user in users
+      tr
+        td= user.name
+        td= user.phone
+        td
+          a.btn.btn-light(href='/users/' + user.id) View
+  script.
+     var searchInput = document.getElementById('search');
+     searchInput.value = sessionStorage.getItem('key');
+     searchInput.addEventListener('change',function(){
+     sessionStorage.setItem('key',searchInput.value);});
