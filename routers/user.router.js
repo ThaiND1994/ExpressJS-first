@@ -3,10 +3,11 @@ var router=express.Router();
 var db=require('../db');
 var shortid=require('shortid');
 var controller=require('../controllers/use.controller');
-var validate=require('../validate/user.validate')
+var validate=require('../validate/user.validate');
+var authMiddleware=require('../middleware/auth.middleware');
 
 
-router.get('/',controller.index);
+router.get('/',authMiddleware.requireAuth,controller.index);
 router.get('/cookie',function(request,response,next){
 	response.cookie('user-id',12345);
 	response.send('Hello');

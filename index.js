@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser')
 var db=require('./db');
   // khai báo short id
 var shortid=require('shortid');
-var useRouter=require('./routers/user.router')
+var useRouter=require('./routers/user.router');
+var authRouter=require('./routers/auth.router');
 
 
 var app=express();
@@ -32,6 +33,7 @@ app.get('/',function(request,response){
 });
 
 app.use('/users',useRouter)
+app.use('/auth',authRouter)
 
 app.listen(port,function()
 {
