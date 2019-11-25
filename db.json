@@ -1,41 +1,11 @@
 {
   "users": [
     {
-      "name": "Nguyễn Tuấn Anh",
-      "phone": "23145678995652",
-      "id": "xHXP6_GP"
-    },
-    {
       "name": "Nguyễn Minh Tuyết",
-      "phone": "12345678921312",
-      "id": "kP61s7HC"
-    },
-    {
-      "name": "Nguyễn Ngọc Thụy",
-      "phone": "12345678921312",
-      "id": "6H5Ait99"
-    },
-    {
-      "name": "Nguyễn Ngọc Thái",
-      "email": "thaind1994@gmail.com",
-      "pass": "123456",
-      "phone": "123456789212",
-      "id": "PNMbzGc-"
-    },
-    {
-      "name": "Nguyễn Văn Tiến",
-      "phone": "012354698569",
-      "id": "p-6MPAtc"
-    },
-    {
-      "name": "Nguyễn Văn Tới",
-      "phone": "01235469879",
-      "id": "7Wvm__9p"
-    },
-    {
-      "name": "Nguyễn Thị Toán",
-      "phone": "0123456789",
-      "id": "pRbpyC4y"
+      "id": "tR2QOlYH",
+      "phone": "0855188329",
+      "email": "nguyenminhtuyet@gmail.com",
+      "pass": "25f9e794323b453885f5181f1b624d0b"
     }
   ]
 }

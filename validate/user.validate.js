@@ -9,6 +9,10 @@ if(!request.body.phone)
 {
 	errors.push('Phone is required');
 }
+if(!request.body.email)
+{
+	errors.push('Email is required');
+}
 if(errors.length)
 {   response.render('users/creat',{
 	errors: errors,
@@ -16,5 +20,6 @@ if(errors.length)
 })
 	return;
 }
+
 next();
 };

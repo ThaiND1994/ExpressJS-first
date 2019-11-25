@@ -12,7 +12,7 @@ var authRouter=require('./routers/auth.router');
 
 var app=express();
 
-app.use(cookieParser())
+app.use(cookieParser('trucphuong2333'))
 
 var port=3000;
 

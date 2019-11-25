@@ -1,4 +1,5 @@
 var db=require('../db');
+var md5=require('md5');
 var shortid=require('shortid');
 
 module.exports.index=function(request,response){
@@ -35,7 +36,14 @@ module.exports.postcreate=function(request,response)
 //vì lúc này biến users undefined nên ta thay = db.get('users')
 // users.push(request.body);
 //chuyển người dùng về trang users 
-    request.body.id=shortid.generate();
-	db.get('users').push(request.body).write();
+    var id=request.body.id
+    id=shortid.generate();
+    var name=request.body.name;
+    var phone=request.body.phone;
+    var email=request.body.email;
+    var pass=request.body.pass;
+    // chuyển đổi pass người dùng nhập thành mã MD5
+    var hashedPass=md5(pass);
+	db.get('users').push({id:id,name:name,phone:phone,email:email,pass:hashedPass}).write();
 	response.redirect('/users');
 }
