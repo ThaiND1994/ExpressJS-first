@@ -1,18 +1,20 @@
+require('dotenv').config();
+
 var express=require('express');
 var bodyParser = require('body-parser');
 //cookie parser
-var cookieParser = require('cookie-parser')
-// khai báo lowdb(data base đơn giản)
-var db=require('./db');
-  // khai báo short id
+var cookieParser = require('cookie-parser');
 var shortid=require('shortid');
 var useRouter=require('./routers/user.router');
 var authRouter=require('./routers/auth.router');
+// khai báo lowdb(data base đơn giản)
+var db=require('./db');
+  // khai báo short id
 
 
 var app=express();
 
-app.use(cookieParser('trucphuong2333'))
+app.use(cookieParser("trucphuong2333"))
 
 var port=3000;
 

@@ -3,8 +3,12 @@ var md5=require('md5');
 var shortid=require('shortid');
 
 module.exports.index=function(request,response){
+	var page=parseInt(request.query.page) || 1;//n
+	var perPage=3 //x
+	var start= (page-1) * perPage;
+	var end= page * perPage;
 	response.render('users/index',{
-		users:db.get('users').value()
+		users:db.get('users').value().slice(start,end)
 	});
 };
 module.exports.search=function(request,response){
@@ -21,6 +25,7 @@ module.exports.search=function(request,response){
 module.exports.view=function(request,response){
 	var id= request.params.id
 	var user=db.get('users').find({id:id}).value();
+	console.log(user);
 	response.render('users/view',{
 		user:user
 	})

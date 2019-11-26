@@ -17,7 +17,9 @@ body
           a.nav-link(href='/users/create') Create Users
         li.nav-item
           a.nav-link(href='/users') Users
+        li.nav-item
+          a.nav-link(href='/users') Product
     if user
-     p(class="text-center")=user.name
+     p(type='text')=user.name
   .container.pt-2       
     block content

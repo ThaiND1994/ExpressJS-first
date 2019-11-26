@@ -1,7 +1,7 @@
 extends ../layout/common
 block content
   h1
-   p(class="text-center") UserList
+   p(class="text-center") User List
   form(action='/users/search',method='GET')
    div.d-flex(class="form-group")
       label(for="exampleInputEmail1" class='m-2 text-align-center') Name:
@@ -20,6 +20,26 @@ block content
         td= user.phone
         td
           a.btn.btn-light(href='/users/' + user.id) View
+  nav(aria-label='Page navigation example')
+  ul.pagination.justify-content-end
+    li.page-item
+      a.page-link(href='?page=1', aria-label='Previous')
+        span(aria-hidden='true') &laquo;
+    li.page-item
+      a.page-link(href='?page=1') 1
+    li.page-item
+      a.page-link(href='?page=2') 2
+    li.page-item
+      a.page-link(href='?page=3') 3
+    li.page-item
+      a.page-link(href='?page=4') 4
+    li.page-item
+      a.page-link(href='?page=5') 5
+    li.page-item
+      a.page-link(href='?page=6') 6
+    li.page-item
+      a.page-link(href='?page=6', aria-label='Next')
+        span(aria-hidden='true') &raquo;
   script.
      var searchInput = document.getElementById('search');
      searchInput.value = sessionStorage.getItem('key');
