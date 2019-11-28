@@ -23,7 +23,7 @@ module.exports.search=function(request,response){
 	});
 }
 module.exports.view=function(request,response){
-	var id= request.params.id
+	var id= request.params.id;
 	var user=db.get('users').find({id:id}).value();
 	console.log(user);
 	response.render('users/view',{
@@ -43,12 +43,14 @@ module.exports.postcreate=function(request,response)
 //chuyển người dùng về trang users 
     var id=request.body.id
     id=shortid.generate();
+    request.body.avatar=request.file.path.split("\\").slice(1).join('/');
+    var avatars=request.body.avatar;
     var name=request.body.name;
     var phone=request.body.phone;
     var email=request.body.email;
     var pass=request.body.pass;
     // chuyển đổi pass người dùng nhập thành mã MD5
     var hashedPass=md5(pass);
-	db.get('users').push({id:id,name:name,phone:phone,email:email,pass:hashedPass}).write();
+	db.get('users').push({id:id,name:name,phone:phone,email:email,pass:hashedPass,avatar:avatars}).write();
 	response.redirect('/users');
 }

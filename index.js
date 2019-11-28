@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var shortid=require('shortid');
 var useRouter=require('./routers/user.router');
 var authRouter=require('./routers/auth.router');
+var listRouter=require('./routers/list.router');
+
 // khai báo lowdb(data base đơn giản)
 var db=require('./db');
   // khai báo short id
@@ -36,6 +38,10 @@ app.get('/',function(request,response){
 
 app.use('/users',useRouter)
 app.use('/auth',authRouter)
+app.use('/list',listRouter)
+
+
+
 
 app.listen(port,function()
 {

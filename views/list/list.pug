@@ -1,0 +1,50 @@
+extends ../layout/common
+block content
+      h1(class="text-center") Product
+      .row
+        .col-sm-4
+          .card.d-flex(style='width: 22rem;')
+              .card-body
+                img(src=product[0].img class="card-img-top" alt="...")
+                h5.card-title Special
+                  span=product[0].name
+                p.card-text
+                  span=product[0].description
+                a.btn.btn-primary(href='#') Go somewhere
+        .col-sm-4
+          .card.d-flex(style='width: 22rem;')
+              .card-body
+                img(src=product[1].img class="card-img-top" alt="...")
+                h5.card-title Special
+                  span=product[1].name
+                p.card-text
+                  span=product[1].description
+                a.btn.btn-primary(href='#') Go somewhere
+        .col-sm-4
+          .card.d-flex(style='width: 22rem;')
+              .card-body
+                img(src=product[2].img class="card-img-top" alt="...")
+                h5.card-title Special
+                  span=product[2].name
+                p.card-text
+                  span=product[2].description
+                a.btn.btn-primary(href='#') Go somewhere
+      nav(class="mt-20" aria-label='Page navigation example')
+      ul.pagination.justify-content-end
+        li.page-item
+          a.page-link(href='?page=1', aria-label='Previous')
+            span(aria-hidden='true') &laquo;
+        li.page-item
+          a.page-link(href='?page=1') 1
+        li.page-item
+          a.page-link(href='?page=2') 2
+        li.page-item
+          a.page-link(href='?page=3') 3
+        li.page-item
+          a.page-link(href='?page=4') 4
+        li.page-item
+          a.page-link(href='?page=6', aria-label='Next')
+            span(aria-hidden='true') &raquo;
+
+
+

@@ -1,9 +1,13 @@
 extends ../layout/common
 block content
-  h1
-   p(class="text-center") User List
-   b Name:
-   span=user.name
-   br
-   b Telephone: 
-   span=user.phone
+   h1(class="text-center") View User
+   .card.mb-3(style='max-width: 1200px;' class="text-center")
+     .row.no-gutters
+         .card-body
+           h5.card-title Name :
+             span=user.name
+           p.card-text Email :
+             span=user.email
+           p.card-text PhoneNumber :
+             small.text-muted
+             span=user.phone

@@ -9,13 +9,16 @@ block content
       br
       button(class="btn btn-outline-primary ml-2") Search
 
-  table.table
+  table.table.table-md
     tr
-      th Name
-      th Phone
-      th Actions
+      th(scope='col') Avatar
+      th(scope='col') Name
+      th(scope='col') Phone
+      th(scope='col') Actions
     each user in users
       tr
+        td
+          img(src=user.avatar,width="50",class="rounded")
         td= user.name
         td= user.phone
         td
