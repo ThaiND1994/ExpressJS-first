@@ -1,0 +1,11 @@
+extends ../layout/common
+block content
+     h1(class="text-center") Product
+     .row
+        .col-sm-6.col-md-4.col-lg-4
+              .card.mb-3
+                img(src=product[0].img class="card-img-top" alt="...")
+                .card-body
+                  h5.card-title=product[0].name
+                  p.card-text=product[0].description
+                  a.btn.btn-primary(href='/cart/add/' + product[0].id) Add to cart

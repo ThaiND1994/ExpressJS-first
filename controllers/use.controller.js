@@ -43,6 +43,7 @@ module.exports.postcreate=function(request,response)
 //chuyển người dùng về trang users 
     var id=request.body.id
     id=shortid.generate();
+    // lấy đường dẫn file ảnh
     request.body.avatar=request.file.path.split("\\").slice(1).join('/');
     var avatars=request.body.avatar;
     var name=request.body.name;
