@@ -21,6 +21,7 @@ var CartRouter=require('./routers/cart.router')
 var transferRouter=require('./routers/transfer.router')
 var authMiddleware=require('./middleware/auth.middleware')
 var productDemo=require('./routers/product.router')
+var apiProductRouter=require('./api/routers/productDemo.router')
 // khai báo lowdb(data base đơn giản)
 var db=require('./db');
 var app=express();
@@ -34,6 +35,7 @@ app.set('views','./views');
 // để cho nó hoạt động ở tất cả các router khác nhau
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use('/api',apiProductRouter)
 //khai báo static file
 app.use(sessionMiddleware)
 app.use(express.static('public'))
@@ -42,10 +44,11 @@ app.use('/users',useRouter)
 app.use('/auth',authRouter)
 app.use('/list',listRouter)
 app.use('/product',productDemo)
+
 // chống hack csrf
 // phải được đặt bên trên của app.use('/transfer',authMiddleware.requireAuth,transferRouter);
 // nếu đặt bên dưới sẽ bị lỗi
-app.use(csurf({cookie:true}))
+// app.use(csurf({cookie:true}))
 app.use('/transfer',authMiddleware.requireAuth,transferRouter);
 
 app.get('/',function(request,response){
